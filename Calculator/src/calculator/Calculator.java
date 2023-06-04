@@ -34,7 +34,11 @@ public class Calculator implements ActionListener {
         frame.setSize(420, 550);
         frame.setLayout(null);
         
+        txtfield = new JTextField();
+        txtfield.setBounds(50, 25, 300, 50);
+        txtfield.setFont(fnt);
         
+        frame.add(txtfield);    
         frame.setVisible(true);
     }
     
