@@ -24,9 +24,7 @@ public class Calculator implements ActionListener {
     JButton add,sub,multi,div;
     JButton dec,equ,del,clr;
     JPanel panel;
-    
     Font fnt = new Font("Calibri",Font.BOLD,30);
-    
     double num1=0,num2=0,ans=0;
     char operator;
     
