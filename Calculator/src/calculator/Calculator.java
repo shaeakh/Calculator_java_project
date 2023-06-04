@@ -21,15 +21,21 @@ public class Calculator implements ActionListener {
     JTextField txtfield; //display 
     JButton[] num_buttons = new JButton[10]; //0,1,2,3,4,5,6,7,8,9
     JButton[] func_buttons = new JButton[8]; //
-    JButton add,sub,multi,div;
+    JButton add,sub,multi,div; // +,-,*,/
     JButton dec,equ,del,clr;
-    JPanel panel;
+    JPanel panel; 
     Font fnt = new Font("Calibri",Font.BOLD,30);
     double num1=0,num2=0,ans=0;
     char operator;
     
     Calculator(){
+        frame = new JFrame("Simple Calculator");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(420, 550);
+        frame.setLayout(null);
         
+        
+        frame.setVisible(true);
     }
     
     
