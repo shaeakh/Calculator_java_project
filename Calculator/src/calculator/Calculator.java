@@ -20,11 +20,12 @@ public class Calculator implements ActionListener {
     JFrame frame; //bg
     JTextField txtfield; //display 
     JButton[] num_buttons = new JButton[10]; //0,1,2,3,4,5,6,7,8,9
-    JButton[] func_buttons = new JButton[8]; //
+    JButton[] func_buttons = new JButton[9]; //
     JButton add,sub,multi,div; // +,-,*,/
-    JButton dec,equ,del,clr;
+    JButton dec,equ,del,clr,neg;
     JPanel panel; 
     Font fnt = new Font("Calibri",Font.BOLD,30);
+    
     double num1=0,num2=0,ans=0;
     char operator;
     
@@ -40,6 +41,7 @@ public class Calculator implements ActionListener {
         txtfield.setFont(fnt);
         txtfield.setEditable(false);
         txtfield.setBackground(Color.gray);
+        txtfield.setForeground(Color.WHITE);
         
         //initializing operational buttons
         add = new JButton("+");
@@ -49,8 +51,9 @@ public class Calculator implements ActionListener {
         
         dec = new JButton(".");
         equ = new JButton("=");
-        del = new JButton("Delete");
+        del = new JButton("Del");
         clr = new JButton("Clear");
+        neg = new JButton("(-)");
         
         //adding functional buttons
         func_buttons[0] = add;
@@ -61,12 +64,15 @@ public class Calculator implements ActionListener {
         func_buttons[5] = equ;
         func_buttons[6] = del;
         func_buttons[7] = clr;
+        func_buttons[8] = neg;
         
         //formating the operational buttons
-        for(int i=0;i<8;i++){
+        for(int i=0;i<9;i++){
             func_buttons[i].addActionListener(this);
             func_buttons[i].setFont(fnt);
             func_buttons[i].setFocusable(false);
+            func_buttons[i].setBackground(Color.PINK);
+            
         }
         
         //initializing and formating number buttons
@@ -78,8 +84,9 @@ public class Calculator implements ActionListener {
         }
                 
         //setting bounds
-        del.setBounds(50, 430, 145, 50);
-        clr.setBounds(205, 430, 145, 50);
+        del.setBounds(150, 430, 100, 50);
+        clr.setBounds(250, 430, 100, 50);
+        neg.setBounds(50, 430, 100, 50);
         
         //adding panel
         panel = new JPanel();
@@ -111,7 +118,8 @@ public class Calculator implements ActionListener {
         //adding objects to the frame
         frame.add(panel);
         frame.add(del);    
-        frame.add(clr);    
+        frame.add(clr);  
+        frame.add(neg);
         frame.add(txtfield);    
         frame.setVisible(true);
     }
