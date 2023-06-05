@@ -39,6 +39,7 @@ public class Calculator implements ActionListener {
         txtfield.setBounds(50, 25, 300, 50);
         txtfield.setFont(fnt);
         txtfield.setEditable(false);
+        txtfield.setBackground(Color.gray);
         
         //initializing operational buttons
         add = new JButton("+");
@@ -87,7 +88,6 @@ public class Calculator implements ActionListener {
         panel.setBackground(Color.GRAY);
         
         //adding objects to the panel
-        
         panel.add(num_buttons[1]);
         panel.add(num_buttons[2]);
         panel.add(num_buttons[3]);
@@ -125,7 +125,73 @@ public class Calculator implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //adding buttons interactions
+        
+        //numbuttons
+        for(int i=0;i<10;i++){
+            if(ae.getSource() ==num_buttons[i]){
+                txtfield.setText(txtfield.getText().concat(String.valueOf(i)));
+            }
+        }
+        
+        //operational buttons
+        if(ae.getSource() ==add){
+            num1 = Double.parseDouble(txtfield.getText());
+            operator = '+';
+            txtfield.setText("");
+        }
+        if(ae.getSource() ==sub){
+            num1 = Double.parseDouble(txtfield.getText());
+            operator = '-';
+            txtfield.setText("");
+        }
+        if(ae.getSource() ==multi){
+            num1 = Double.parseDouble(txtfield.getText());
+            operator = '*';
+            txtfield.setText("");
+        }
+        if(ae.getSource() ==div){
+            num1 = Double.parseDouble(txtfield.getText());
+            operator = '/';
+            txtfield.setText("");
+        }
+        if(ae.getSource() ==dec){
+            txtfield.setText(txtfield.getText().concat("."));
+        }
+        if(ae.getSource() ==equ){
+            num2=Double.parseDouble(txtfield.getText());
+            switch(operator){
+                case'+':
+                    ans = num1 + num2;
+                    break;
+                case'-':
+                    ans = num1 - num2;
+                    break;
+                case'*':
+                    ans = num1 * num2;
+                    break;
+                case'/':
+                    ans = num1 / num2;
+                    break;
+            }
+            txtfield.setText(String.valueOf(ans));
+            num1 = ans;
+        }
+        if(ae.getSource() ==del){
+            String string = txtfield.getText();
+            txtfield.setText("");
+            for(int i=0;i<string.length()-1;i++){
+            txtfield.setText(txtfield.getText()+string.charAt(i));
+            }
+        }
+        if(ae.getSource() ==clr){
+            txtfield.setText(""); 
+        }
+        if(ae.getSource() ==neg){
+            double temp = Double.parseDouble(txtfield.getText());
+            temp *= (-1);
+            txtfield.setText(String.valueOf(temp));
+        }
     }
     
 }
