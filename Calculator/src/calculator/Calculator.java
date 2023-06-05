@@ -34,10 +34,27 @@ public class Calculator implements ActionListener {
         frame.setSize(420, 550);
         frame.setLayout(null);
         
+        //text field formation
         txtfield = new JTextField();
         txtfield.setBounds(50, 25, 300, 50);
         txtfield.setFont(fnt);
+        txtfield.setEditable(false);
         
+        //initializing operational buttons
+        add = new JButton("+");
+        sub = new JButton("-");
+        multi = new JButton("*");
+        div = new JButton("/");
+        
+        dec = new JButton(".");
+        equ = new JButton("=");
+        del = new JButton("Delete");
+        clr = new JButton("Clear");
+        
+        
+        
+        
+        //adding objects to the frame
         frame.add(txtfield);    
         frame.setVisible(true);
     }
